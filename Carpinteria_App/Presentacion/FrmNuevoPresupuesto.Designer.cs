@@ -35,14 +35,14 @@
             this.TxtSubtotal = new System.Windows.Forms.TextBox();
             this.LblTotal = new System.Windows.Forms.Label();
             this.TxtTotal = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.LblDescuento = new System.Windows.Forms.Label();
+            this.LblFecha = new System.Windows.Forms.Label();
+            this.LblCliente = new System.Windows.Forms.Label();
             this.TxtFecha = new System.Windows.Forms.TextBox();
             this.TxtCliente = new System.Windows.Forms.TextBox();
             this.TxtDescuento = new System.Windows.Forms.TextBox();
-            this.Btn = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BtnAceptar = new System.Windows.Forms.Button();
+            this.BtnCancelar = new System.Windows.Forms.Button();
             this.TxtCantidad = new System.Windows.Forms.TextBox();
             this.LblPresupuesto = new System.Windows.Forms.Label();
             this.Colid = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,7 +64,7 @@
             this.ColPrecio,
             this.ColCantidad,
             this.ColAcciones});
-            this.DgbDetalle.Location = new System.Drawing.Point(32, 157);
+            this.DgbDetalle.Location = new System.Drawing.Point(32, 156);
             this.DgbDetalle.Name = "DgbDetalle";
             this.DgbDetalle.ReadOnly = true;
             this.DgbDetalle.Size = new System.Drawing.Size(554, 150);
@@ -121,36 +121,36 @@
             this.TxtTotal.Size = new System.Drawing.Size(100, 20);
             this.TxtTotal.TabIndex = 6;
             // 
-            // label3
+            // LblDescuento
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "label3";
+            this.LblDescuento.AutoSize = true;
+            this.LblDescuento.Location = new System.Drawing.Point(29, 103);
+            this.LblDescuento.Name = "LblDescuento";
+            this.LblDescuento.Size = new System.Drawing.Size(67, 13);
+            this.LblDescuento.TabIndex = 8;
+            this.LblDescuento.Text = "%Descuento";
             // 
-            // label4
+            // LblFecha
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 55);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "label4";
+            this.LblFecha.AutoSize = true;
+            this.LblFecha.Location = new System.Drawing.Point(59, 55);
+            this.LblFecha.Name = "LblFecha";
+            this.LblFecha.Size = new System.Drawing.Size(37, 13);
+            this.LblFecha.TabIndex = 9;
+            this.LblFecha.Text = "Fecha";
             // 
-            // label5
+            // LblCliente
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 82);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "label5";
+            this.LblCliente.AutoSize = true;
+            this.LblCliente.Location = new System.Drawing.Point(55, 78);
+            this.LblCliente.Name = "LblCliente";
+            this.LblCliente.Size = new System.Drawing.Size(39, 13);
+            this.LblCliente.TabIndex = 10;
+            this.LblCliente.Text = "Cliente";
             // 
             // TxtFecha
             // 
-            this.TxtFecha.Location = new System.Drawing.Point(70, 53);
+            this.TxtFecha.Location = new System.Drawing.Point(102, 52);
             this.TxtFecha.Name = "TxtFecha";
             this.TxtFecha.Size = new System.Drawing.Size(174, 20);
             this.TxtFecha.TabIndex = 11;
@@ -158,35 +158,35 @@
             // 
             // TxtCliente
             // 
-            this.TxtCliente.Location = new System.Drawing.Point(70, 79);
+            this.TxtCliente.Location = new System.Drawing.Point(102, 75);
             this.TxtCliente.Name = "TxtCliente";
             this.TxtCliente.Size = new System.Drawing.Size(380, 20);
             this.TxtCliente.TabIndex = 12;
             // 
             // TxtDescuento
             // 
-            this.TxtDescuento.Location = new System.Drawing.Point(70, 104);
+            this.TxtDescuento.Location = new System.Drawing.Point(102, 100);
             this.TxtDescuento.Name = "TxtDescuento";
             this.TxtDescuento.Size = new System.Drawing.Size(174, 20);
             this.TxtDescuento.TabIndex = 13;
             // 
-            // Btn
+            // BtnAceptar
             // 
-            this.Btn.Location = new System.Drawing.Point(209, 381);
-            this.Btn.Name = "Btn";
-            this.Btn.Size = new System.Drawing.Size(75, 23);
-            this.Btn.TabIndex = 14;
-            this.Btn.Text = "button2";
-            this.Btn.UseVisualStyleBackColor = true;
+            this.BtnAceptar.Location = new System.Drawing.Point(209, 381);
+            this.BtnAceptar.Name = "BtnAceptar";
+            this.BtnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.BtnAceptar.TabIndex = 14;
+            this.BtnAceptar.Text = "Aceptar";
+            this.BtnAceptar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // BtnCancelar
             // 
-            this.button3.Location = new System.Drawing.Point(331, 381);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Location = new System.Drawing.Point(331, 381);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.BtnCancelar.TabIndex = 15;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = true;
             // 
             // TxtCantidad
             // 
@@ -199,7 +199,7 @@
             // LblPresupuesto
             // 
             this.LblPresupuesto.AutoSize = true;
-            this.LblPresupuesto.Location = new System.Drawing.Point(29, 24);
+            this.LblPresupuesto.Location = new System.Drawing.Point(29, 19);
             this.LblPresupuesto.Name = "LblPresupuesto";
             this.LblPresupuesto.Size = new System.Drawing.Size(81, 13);
             this.LblPresupuesto.TabIndex = 17;
@@ -245,14 +245,14 @@
             this.ClientSize = new System.Drawing.Size(595, 413);
             this.Controls.Add(this.LblPresupuesto);
             this.Controls.Add(this.TxtCantidad);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.Btn);
+            this.Controls.Add(this.BtnCancelar);
+            this.Controls.Add(this.BtnAceptar);
             this.Controls.Add(this.TxtDescuento);
             this.Controls.Add(this.TxtCliente);
             this.Controls.Add(this.TxtFecha);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.LblCliente);
+            this.Controls.Add(this.LblFecha);
+            this.Controls.Add(this.LblDescuento);
             this.Controls.Add(this.TxtTotal);
             this.Controls.Add(this.LblTotal);
             this.Controls.Add(this.TxtSubtotal);
@@ -278,14 +278,14 @@
         private System.Windows.Forms.TextBox TxtSubtotal;
         private System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.TextBox TxtTotal;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LblDescuento;
+        private System.Windows.Forms.Label LblFecha;
+        private System.Windows.Forms.Label LblCliente;
         private System.Windows.Forms.TextBox TxtFecha;
         private System.Windows.Forms.TextBox TxtCliente;
         private System.Windows.Forms.TextBox TxtDescuento;
-        private System.Windows.Forms.Button Btn;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BtnAceptar;
+        private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.TextBox TxtCantidad;
         private System.Windows.Forms.Label LblPresupuesto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Colid;

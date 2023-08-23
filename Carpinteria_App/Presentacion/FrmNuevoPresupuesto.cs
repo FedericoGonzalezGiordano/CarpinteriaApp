@@ -29,6 +29,7 @@ namespace Carpinteria_App.Presentacion
 
             TxtCliente.Text = "Consumidor Final";
             TxtDescuento.Text = "0";
+            TxtCantidad.Text = "1";
             ProximoPresupuesto();
             cargarProductos();
         }
@@ -36,7 +37,7 @@ namespace Carpinteria_App.Presentacion
         private void cargarProductos()
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = @"Data Source=172.16.10.196;Initial Catalog=Carpinteria_2023;User ID=alumno1w1;Password=alumno1w1";
+            conexion.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Carpinteria_2023;Integrated Security=True";
             conexion.Open();
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexion;
@@ -49,20 +50,19 @@ namespace Carpinteria_App.Presentacion
             CboProducto.DataSource = tabla;
             CboProducto.ValueMember= tabla.Columns[0].ColumnName;
             CboProducto.DisplayMember = tabla.Columns[1].ColumnName;
-            CboProducto.DropDownStyle=CboProducto.DropDownStyle;
              
         }
 
         private void ProximoPresupuesto()
         {
             SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = @"Data Source=172.16.10.196;Initial Catalog=Carpinteria_2023;User ID=alumno1w1;Password=alumno1w1";
+            conexion.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Carpinteria_2023;Integrated Security=True";
             conexion.Open();
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexion;
             comando.CommandType = CommandType.StoredProcedure;
             comando.CommandText = "SP_PROXIMO_ID";
-            SqlParameter parametro= new SqlParameter();
+            SqlParameter parametro= new SqlParameter();//Se pueden poner con parametros, y no ponerlo abajo("@Next",SqlDbType.Int )
             parametro.ParameterName= "@next";
             parametro.SqlDbType = SqlDbType.Int;
             parametro.Direction = ParameterDirection.Output;
@@ -91,7 +91,7 @@ namespace Carpinteria_App.Presentacion
                 CboProducto.Focus();
                 return;
             }
-            if(string.IsNullOrEmpty(TxtCantidad.Text)||int.TryParse(TxtCantidad.Text,out _))
+            if(string.IsNullOrEmpty(TxtCantidad.Text) || !int.TryParse(TxtCantidad.Text,out _))
             { 
                 MessageBox.Show("Debe ingresar una cantidad valida..","Agregar",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 TxtCantidad.Focus();
@@ -101,7 +101,7 @@ namespace Carpinteria_App.Presentacion
             {
                 if (row.Cells["ColProducto"].Value.ToString().Equals(CboProducto.Text))
                 {
-                    MessageBox.Show("Este producto ya esta presupuestado.", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Este producto ya esta presupuestado", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     CboProducto.Focus();
                     return;
                 }
@@ -111,22 +111,23 @@ namespace Carpinteria_App.Presentacion
 
             int nro = Convert.ToInt32(item.Row.ItemArray[0]);
             string nom = item.Row.ItemArray[1].ToString();
-            double precio= Convert.ToDouble(item.Row.ItemArray[2].ToString());
+            double pre= Convert.ToDouble(item.Row.ItemArray[2].ToString());
             
-            Producto p = new Producto(nro,nom,precio);
+            Producto p = new Producto(nro,nom,pre);
+
             int cant = Convert.ToInt32(TxtCantidad.Text);
 
             DetallePresupuesto detalle = new DetallePresupuesto(p,cant);
+           
             presupuesto.AgregarDetalle(detalle);
-            DgbDetalle.Rows.Add(new object[] {detalle.Producto.ProductoNro,
-                                               detalle.Producto.Nombre,
-                                                 detalle.Producto.Precio,
-                                                   detalle.Cantidad,
-                                                    "Quitar" });
+            //DgbDetalle.Rows.Add(new object[] {detalle.Producto.ProductoNro,
+            //                                   detalle.Producto.Nombre,
+            //                                     detalle.Producto.Precio,
+            //                                       detalle.Cantidad,
+            //                                        "Quitar" });
+            DgbDetalle.Rows.Add(new object[] { nro, nom, pre, cant, "Quitar" });
 
-            CalcularTotales();
-    
-            
+            CalcularTotales(); 
         }
 
         private void CalcularTotales()
@@ -141,7 +142,7 @@ namespace Carpinteria_App.Presentacion
 
         private void DgbDetalle_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(DgbDetalle.CurrentCell.ColumnIndex==4)
+            if (DgbDetalle.CurrentCell.ColumnIndex == (DgbDetalle.ColumnCount - 1))
             {
                 presupuesto.QuitarDetalle(DgbDetalle.CurrentRow.Index);
                 DgbDetalle.Rows.RemoveAt(DgbDetalle.CurrentRow.Index);

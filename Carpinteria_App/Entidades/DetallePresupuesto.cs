@@ -8,13 +8,11 @@ namespace Carpinteria_App.Entidades
 {
     public class DetallePresupuesto
     {
-        private Producto p;
-        private int cant;
 
         public DetallePresupuesto(Producto p, int cant)
         {
-            this.p = p;
-            this.cant = cant;
+            Producto = p;
+            Cantidad = cant;
         }
 
         public Producto Producto { get; set; }

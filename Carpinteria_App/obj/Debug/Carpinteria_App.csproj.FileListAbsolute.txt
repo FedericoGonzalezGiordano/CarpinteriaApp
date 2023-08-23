@@ -10,3 +10,14 @@ C:\Users\alumno\Desktop\ProyectoClase 15-08\Carpinteria_App\obj\Debug\Carpinteri
 C:\Users\alumno\Desktop\ProyectoClase 15-08\Carpinteria_App\obj\Debug\Carpinteria_App.csproj.CoreCompileInputs.cache
 C:\Users\alumno\Desktop\ProyectoClase 15-08\Carpinteria_App\obj\Debug\Carpinteria_App.exe
 C:\Users\alumno\Desktop\ProyectoClase 15-08\Carpinteria_App\obj\Debug\Carpinteria_App.pdb
+C:\Users\Federico gonzalez\Desktop\CarpinteriaApp_405516\Carpinteria_App\bin\Debug\Carpinteria_App.exe.config
+C:\Users\Federico gonzalez\Desktop\CarpinteriaApp_405516\Carpinteria_App\bin\Debug\Carpinteria_App.exe
+C:\Users\Federico gonzalez\Desktop\CarpinteriaApp_405516\Carpinteria_App\bin\Debug\Carpinteria_App.pdb
+C:\Users\Federico gonzalez\Desktop\CarpinteriaApp_405516\Carpinteria_App\obj\Debug\Carpinteria_App.csproj.AssemblyReference.cache
+C:\Users\Federico gonzalez\Desktop\CarpinteriaApp_405516\Carpinteria_App\obj\Debug\Carpinteria_App.Presentacion.FrmNuevoPresupuesto.resources
+C:\Users\Federico gonzalez\Desktop\CarpinteriaApp_405516\Carpinteria_App\obj\Debug\Carpinteria_App.FrmPrincipal.resources
+C:\Users\Federico gonzalez\Desktop\CarpinteriaApp_405516\Carpinteria_App\obj\Debug\Carpinteria_App.Properties.Resources.resources
+C:\Users\Federico gonzalez\Desktop\CarpinteriaApp_405516\Carpinteria_App\obj\Debug\Carpinteria_App.csproj.GenerateResource.cache
+C:\Users\Federico gonzalez\Desktop\CarpinteriaApp_405516\Carpinteria_App\obj\Debug\Carpinteria_App.csproj.CoreCompileInputs.cache
+C:\Users\Federico gonzalez\Desktop\CarpinteriaApp_405516\Carpinteria_App\obj\Debug\Carpinteria_App.exe
+C:\Users\Federico gonzalez\Desktop\CarpinteriaApp_405516\Carpinteria_App\obj\Debug\Carpinteria_App.pdb
