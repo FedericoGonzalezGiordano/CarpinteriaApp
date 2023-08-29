@@ -24,5 +24,11 @@ namespace Carpinteria_App
             FrmNuevoPresupuesto nuevo = new FrmNuevoPresupuesto();
             nuevo.ShowDialog();
         }
+
+        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConsultarPresupuesto  consultarPresupuesto=new FrmConsultarPresupuesto();    
+            consultarPresupuesto.ShowDialog();
+        }
     }
 }

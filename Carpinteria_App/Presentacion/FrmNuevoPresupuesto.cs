@@ -9,17 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Carpinteria_App.Entidades;
+using Carpinteria_App.Datos;
 
 namespace Carpinteria_App.Presentacion
 {
     public partial class FrmNuevoPresupuesto : Form
     {
         Presupuesto presupuesto = null;
+        HelperDb gestor= null;
 
         public FrmNuevoPresupuesto()
         {
             InitializeComponent();
             presupuesto=new Presupuesto();
+            gestor=new HelperDb();
         }
 
         private void FrmNuevoPresupuesto_Load(object sender, EventArgs e)
@@ -30,48 +33,22 @@ namespace Carpinteria_App.Presentacion
             TxtCliente.Text = "Consumidor Final";
             TxtDescuento.Text = "0";
             TxtCantidad.Text = "1";
-            ProximoPresupuesto();
+            LblPresupuesto.Text = LblPresupuesto.Text + " " + gestor.ProximoPresupuesto().ToString();
             cargarProductos();
+          
         }
 
         private void cargarProductos()
         {
-            SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Carpinteria_2023;Integrated Security=True";
-            conexion.Open();
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = conexion;
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.CommandText = "SP_CONSULTAR_PRODUCTOS";
-            DataTable tabla = new DataTable();
-            tabla.Load(comando.ExecuteReader());
-            conexion.Close();
-
+            DataTable tabla = 
+            gestor.Consultar("SP_CONSULTAR_PRODUCTOS");
             CboProducto.DataSource = tabla;
             CboProducto.ValueMember= tabla.Columns[0].ColumnName;
             CboProducto.DisplayMember = tabla.Columns[1].ColumnName;
              
         }
 
-        private void ProximoPresupuesto()
-        {
-            SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Carpinteria_2023;Integrated Security=True";
-            conexion.Open();
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = conexion;
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.CommandText = "SP_PROXIMO_ID";
-            SqlParameter parametro= new SqlParameter();//Se pueden poner con parametros, y no ponerlo abajo("@Next",SqlDbType.Int )
-            parametro.ParameterName= "@next";
-            parametro.SqlDbType = SqlDbType.Int;
-            parametro.Direction = ParameterDirection.Output;
-            comando.Parameters.Add(parametro);
-            comando.ExecuteNonQuery();
-            conexion.Close();
-
-            LblPresupuesto.Text = LblPresupuesto.Text + " " + parametro.Value.ToString();
-        }
+       
 
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
@@ -148,6 +125,46 @@ namespace Carpinteria_App.Presentacion
                 DgbDetalle.Rows.RemoveAt(DgbDetalle.CurrentRow.Index);
                 CalcularTotales();
             }
+        }
+
+        private void BtnAceptar_Click(object sender, EventArgs e)
+        {
+            //VALIDAR
+
+            if (string.IsNullOrEmpty(TxtCliente.Text))
+            {
+                MessageBox.Show("Debe ingresar un cliente..","Control",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;            
+            }
+            if (DgbDetalle.Rows.Count==0)
+            {
+                MessageBox.Show("Debe ingresar al menos un detalle ..", "Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //CONFIRMAR O GRABAR
+            GrabarPresupuesto();
+        }
+
+        private void GrabarPresupuesto()
+        {
+            presupuesto.Fecha=Convert.ToDateTime(TxtFecha.Text);
+            presupuesto.Cliente=TxtCliente.Text;
+            presupuesto.Descuento=Convert.ToDouble(TxtDescuento.Text);
+            if (gestor.ConfirmarPresupuesto(presupuesto))
+            {
+                MessageBox.Show("Se registro con exito!", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo registrar el presupuesto!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

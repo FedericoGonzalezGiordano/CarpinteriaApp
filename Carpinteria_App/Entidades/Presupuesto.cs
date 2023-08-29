@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carpinteria_App.Entidades
 {
-    internal class Presupuesto
+    public class Presupuesto
     {
         
         public int PresupuestoNro { get; set; }

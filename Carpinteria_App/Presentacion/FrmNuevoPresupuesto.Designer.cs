@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.DgbDetalle = new System.Windows.Forms.DataGridView();
+            this.Colid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColAcciones = new System.Windows.Forms.DataGridViewButtonColumn();
             this.CboProducto = new System.Windows.Forms.ComboBox();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.LblSubtotal = new System.Windows.Forms.Label();
@@ -45,11 +50,6 @@
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.TxtCantidad = new System.Windows.Forms.TextBox();
             this.LblPresupuesto = new System.Windows.Forms.Label();
-            this.Colid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColAcciones = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgbDetalle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,6 +70,39 @@
             this.DgbDetalle.Size = new System.Drawing.Size(554, 150);
             this.DgbDetalle.TabIndex = 0;
             this.DgbDetalle.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgbDetalle_CellContentClick);
+            // 
+            // Colid
+            // 
+            this.Colid.HeaderText = "Id";
+            this.Colid.Name = "Colid";
+            this.Colid.ReadOnly = true;
+            this.Colid.Visible = false;
+            // 
+            // ColProducto
+            // 
+            this.ColProducto.HeaderText = "Producto";
+            this.ColProducto.Name = "ColProducto";
+            this.ColProducto.ReadOnly = true;
+            this.ColProducto.Width = 212;
+            // 
+            // ColPrecio
+            // 
+            this.ColPrecio.HeaderText = "Precio";
+            this.ColPrecio.Name = "ColPrecio";
+            this.ColPrecio.ReadOnly = true;
+            // 
+            // ColCantidad
+            // 
+            this.ColCantidad.HeaderText = "Cantidad";
+            this.ColCantidad.Name = "ColCantidad";
+            this.ColCantidad.ReadOnly = true;
+            // 
+            // ColAcciones
+            // 
+            this.ColAcciones.HeaderText = "Acciones";
+            this.ColAcciones.Name = "ColAcciones";
+            this.ColAcciones.ReadOnly = true;
+            this.ColAcciones.Text = "Quitar";
             // 
             // CboProducto
             // 
@@ -178,6 +211,7 @@
             this.BtnAceptar.TabIndex = 14;
             this.BtnAceptar.Text = "Aceptar";
             this.BtnAceptar.UseVisualStyleBackColor = true;
+            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
             // BtnCancelar
             // 
@@ -187,6 +221,7 @@
             this.BtnCancelar.TabIndex = 15;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // TxtCantidad
             // 
@@ -204,39 +239,6 @@
             this.LblPresupuesto.Size = new System.Drawing.Size(81, 13);
             this.LblPresupuesto.TabIndex = 17;
             this.LblPresupuesto.Text = "Presupuesto N°";
-            // 
-            // Colid
-            // 
-            this.Colid.HeaderText = "Id";
-            this.Colid.Name = "Colid";
-            this.Colid.ReadOnly = true;
-            this.Colid.Visible = false;
-            // 
-            // ColProducto
-            // 
-            this.ColProducto.HeaderText = "Producto";
-            this.ColProducto.Name = "ColProducto";
-            this.ColProducto.ReadOnly = true;
-            this.ColProducto.Width = 212;
-            // 
-            // ColPrecio
-            // 
-            this.ColPrecio.HeaderText = "Precio";
-            this.ColPrecio.Name = "ColPrecio";
-            this.ColPrecio.ReadOnly = true;
-            // 
-            // ColCantidad
-            // 
-            this.ColCantidad.HeaderText = "Cantidad";
-            this.ColCantidad.Name = "ColCantidad";
-            this.ColCantidad.ReadOnly = true;
-            // 
-            // ColAcciones
-            // 
-            this.ColAcciones.HeaderText = "Acciones";
-            this.ColAcciones.Name = "ColAcciones";
-            this.ColAcciones.ReadOnly = true;
-            this.ColAcciones.Text = "Quitar";
             // 
             // FrmNuevoPresupuesto
             // 

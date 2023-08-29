@@ -46,9 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\HelperDb.cs" />
+    <Compile Include="Datos\Parametros.cs" />
     <Compile Include="Entidades\DetallePresupuesto.cs" />
     <Compile Include="Entidades\Presupuesto.cs" />
     <Compile Include="Entidades\Producto.cs" />
+    <Compile Include="Presentacion\FrmConsultarPresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmConsultarPresupuesto.Designer.cs">
+      <DependentUpon>FrmConsultarPresupuesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmDetallePresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmDetallePresupuesto.Designer.cs">
+      <DependentUpon>FrmDetallePresupuesto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\FrmNuevoPresupuesto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +77,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentacion\FrmConsultarPresupuesto.resx">
+      <DependentUpon>FrmConsultarPresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmDetallePresupuesto.resx">
+      <DependentUpon>FrmDetallePresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmNuevoPresupuesto.resx">
       <DependentUpon>FrmNuevoPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
